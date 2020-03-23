@@ -56,5 +56,5 @@ Where a is the angle of rotation
 ```
 
 ### Projectives
-![Perspective](/img/sample_project.jpg)
+![Perspective](/img/sample_project1.jpg)
 
