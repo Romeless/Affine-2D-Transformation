@@ -1,6 +1,8 @@
-# Sistem Pakar_Assignment 1_Task 1
+# Sistem Pakar Assignment 1 Task 1
 Rama Lesmana
+
 1313617011
+
 State University of Jakarta
 
 My solution to Task 1 of Assignment 1 from class "Sistem Pakar".
