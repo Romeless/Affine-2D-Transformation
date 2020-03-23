@@ -1,11 +1,12 @@
 # Parts which come from other sources:
 
-- *.py: I discussed with M. Aufi R about the function [transform], in particular of whether I should use 
-> res[new_XY[0], new_XY[1]] = img[xx,yy]
+- *.py: I discussed with M. Aufi R about the function [transform], in particular of whether I should use
+
+```res[new_XY[0], new_XY[1]] = img[xx,yy]```
 
 or
 
-> res[xx,yy] = img[new_XY[0], new_XY[1]]
+```res[xx,yy] = img[new_XY[0], new_XY[1]]```
 
 To transform the image correctly, in which *img* are the original image, *xx* and *yy* are the old coordinates, and *new_XY* are the new coordinates. We went with the 1st choice.
 
