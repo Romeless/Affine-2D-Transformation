@@ -1,9 +1,9 @@
 # Sistem Pakar Assignment 1 Task 1
-Rama Lesmana
+#### Rama Lesmana
+#### 1313617011
+#### State University of Jakarta
 
-1313617011
 
-State University of Jakarta
 
 My solution to Task 1 of Assignment 1 from class "Sistem Pakar".
 This task involves the transformation of Image in the form of 2D Arrays.
