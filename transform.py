@@ -119,6 +119,7 @@ def projection():
             else:
                 fin.append(sys.argv[3+i].split(','))
         H = search_4_variables(np.array(ori).astype(np.int), np.array(fin).astype(np.int))
+        print(H)
     except IndexError:
         print("For PROJECTION: IMAGEPATH PROJECT x1,y1 x'1,y'1 x2,y2 x'2,y'2 x3,y3 x'3,y'3 x4,y4 x'4,y'4 [...]*")
         print("*Can take as many coord as needed, each point must come in pairs of original coord to result coord")
