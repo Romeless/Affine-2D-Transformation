@@ -1,6 +1,6 @@
 # Parts which come from other sources:
 
-- *.py: I discussed with M. Aufi R about the function [transform], in particular of whether I should use
+- *.py: I discussed with [M. Aufi R](https://github.com/parampaa2) about the function [transform], in particular of whether I should use
 
 ```res[new_XY[0], new_XY[1]] = img[xx,yy]```
 
