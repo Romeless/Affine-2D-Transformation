@@ -1,9 +1,9 @@
 # Sistem Pakar Assignment 1 Task 1
-Rama Lesmana
+#### Rama Lesmana
+#### 1313617011
+#### State University of Jakarta
 
-1313617011
 
-State University of Jakarta
 
 My solution to Task 1 of Assignment 1 from class "Sistem Pakar".
 This task involves the transformation of Image in the form of 2D Arrays.
@@ -56,5 +56,34 @@ Where a is the angle of rotation
 ```
 
 ### Projectives
-![Perspective](/img/sample_project.jpg)
+![Perspective](/img/sample_project1.jpg)
 
+Projective is a lot trickier than the previous 3 transformation, due to the sheer freedom its matrix give. To correctly project the Image, at least 4 pair of initial coordinates and final coordinates is needed. In the end of the transformation, the initial coordinates will be placed on its pairing final coordinates.
+
+The module includes how to calculate the matrix elements:
+```
+[ h00, h01, h02]
+[ h10, h11, h12]
+[ h20, h21, h22]
+Where h22 is usually 1
+
+x' = (h00 * x + h01 * y + h02) / (h20 * x + h21 * y + h22)
+y' = (h10 * x + h11 * y + h12) / (h20 * x + h21 * y + h22)
+Where (x,y) is the initial coordinates and (x',y') is the final coordinates
+```
+However I have a hard time figuring out how to turn it into a code. However, following [this article](https://math.stackexchange.com/questions/494238/how-to-compute-homography-matrix-h-from-corresponding-points-2d-2d-planar-homog), I managed to write a python code of how to calculate the matrix element given the initial coordinates and final coordinates.
+
+## How they are translated to code
+For the most part, the code's backbone lies in the [transform] function. This function, given the image array and the transformation matrix, will return the resulting image.
+
+The basic of the code is:
+```
+for each ROW in IMAGE:
+  for each COL in IMAGE:
+    new_ROW, new_COL, i = TRANSFORMATION_MATRIX @ [ROW, COL, 1]
+    
+    new_IMAGE[new_ROW, new_COL] = IMAGE[ROW, COL]
+return new_IMAGE
+```
+
+The point of this code is to get the homography coordinate of the image one by one, and then dot product said coordinate with the transformation matrix. The resulting coordinate is where the previous coordinate's color/pixel should be.
