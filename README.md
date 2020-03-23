@@ -87,3 +87,28 @@ return new_IMAGE
 ```
 
 The point of this code is to get the homography coordinate of the image one by one, and then dot product said coordinate with the transformation matrix. The resulting coordinate is where the previous coordinate's color/pixel should be.
+
+## Interesting things I found while experimenting
+There's one thing I found interesting in this experiment. Looking through the images above such as scaling and rotation, one may notice the black spots inbetween the image. This is caused by the nature of the code, which is:
+```
+#from the function transform
+for xx in range(row):
+  for yy in range(column):
+    ...
+    res[new_XY[0], new_XY[1]] = img[xx,yy]
+    ...
+```
+Since this code loop through pixel per pixel in the form of *xx* and *yy*, while the resulting image uses the new coordinates from the result of transformation matrix dot product *xx* and *yy*, there's bound to be some pixel where the new coordinate do not go through. Meanwhile, the code
+```
+res[xx,yy] = img[new_XY[0], new_XY[1]]
+```
+results in a near-perfect, no black spots in the image. The problem of this method is, the new coordinates are wrong, it's mirrored. For example, scaling the image by 2 will cut it in half (0.5) instead.
+
+![Scaling Method 1](/img/sample_scale_right.jpg) 
+![Scaling Method 2](/img/sample_scale_wrong.jpg)
+
+The left image is the result of scaling by 2 with code 1. The right image is the result of scaling by 0.5 with code 2.
+Obviously, when scaling the image by 2, the image should look bigger, and while scaling by 0.5 the image should look smaller.
+This isn't the case for method 2, where the result looks like what the left should look like.
+
+How to fix this confuses me for a while, until I discuss it with a [fellow classmate](https://github.com/parampaa2) which method is more right. From what we briefly discuss, the left method is correct, and to fix it several other implementation like anti-aliasing should be used. Which I haven't yet implemented.
