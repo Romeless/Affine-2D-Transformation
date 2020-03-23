@@ -154,7 +154,9 @@ if __name__ == '__main__':
         exit()
 
     res = transform(img, H)
-
+    res = res.astype("uint8")
+    plt.imsave("{}{}{}.jpg".format(sys.argv[1], sys.argv[2], sys.argv[3]), res)
+    
     _, axarr = plt.subplots(1,2)
     axarr[0].imshow(img.astype('uint8'))
     axarr[1].imshow(res.astype('uint8'))
