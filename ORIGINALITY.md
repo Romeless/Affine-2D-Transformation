@@ -19,3 +19,5 @@ I only converted it to the form of python code
 # Parts I wrote myself
 
 - I declare that every part not listed above, I wrote it myself.
+
+- The only library used are numpy, PIL.Image, and matplotlib. Numpy is used as basic array/matrix maniplutaion. In which, the only particular shortcut I took were np.linalg.inv() to inverse a matrix.
